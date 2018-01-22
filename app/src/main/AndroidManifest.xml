@@ -41,7 +41,8 @@
         </activity>
         <activity android:name=".MasterActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".MasterBasicData"></activity>
+        <activity android:name=".MasterBasicData" />
+        <activity android:name=".BasicDataMaintain"></activity>
     </application>
 
 </manifest>

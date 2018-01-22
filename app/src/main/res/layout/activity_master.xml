@@ -14,7 +14,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/masterData"
+            android:id="@+id/btn1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -36,14 +36,14 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/order"
+            android:id="@+id/btn2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="訂單資料" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btn5"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -57,14 +57,14 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/reservation"
+            android:id="@+id/btn3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="排程預約" />
 
         <Button
-            android:id="@+id/notification"
+            android:id="@+id/btn6"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"

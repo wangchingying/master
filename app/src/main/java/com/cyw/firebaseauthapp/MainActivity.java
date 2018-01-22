@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         dao = new masterDAO(MainActivity.this);
         login_btn=(Button)findViewById(R.id.login_btn);
         register_btn=(Button)findViewById(R.id.register_btn);
-        id=(EditText)findViewById(R.id.id);
+        id=(EditText)findViewById(R.id.passwordold);
         password=(EditText)findViewById(R.id.password);
 
         login_btn.setOnClickListener(new View.OnClickListener() {
@@ -51,18 +51,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                if(id.getText().toString().equals("")){
-                    Toast.makeText(MainActivity.this, "請輸入手機號碼,不能空白喔~", Toast.LENGTH_SHORT).show();
-                }else if(password.getText().toString().equals("")) {
-                    Toast.makeText(MainActivity.this, "請輸入密碼,不能空白喔~", Toast.LENGTH_SHORT).show();
-                }else if(loginSuccess()){
+//                if(id.getText().toString().equals("")){
+//                    Toast.makeText(MainActivity.this, "請輸入手機號碼,不能空白喔~", Toast.LENGTH_SHORT).show();
+//                }else if(password.getText().toString().equals("")) {
+//                    Toast.makeText(MainActivity.this, "請輸入密碼,不能空白喔~", Toast.LENGTH_SHORT).show();
+//                }else if(loginSuccess()){
                     Intent it = new Intent(MainActivity.this, MasterActivity.class);
                     startActivity(it);
-                }else {
+//                }else {
                     //Toast.makeText(MainActivity.this, "帳號密碼錯誤!!", Toast.LENGTH_SHORT).show();
-                }
+//                }
             }
-            //比對電話密碼尚未處理
+            //比對電話密碼
             public boolean loginSuccess()
             {
                 Boolean result=false;

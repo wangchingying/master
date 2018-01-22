@@ -19,8 +19,8 @@
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/id"
-        android:layout_below="@+id/id"
+        android:layout_alignStart="@+id/passwordold"
+        android:layout_below="@+id/passwordold"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="請輸入密碼"
@@ -62,7 +62,7 @@
         android:text="請登入輸入電話及密碼" />
 
     <EditText
-        android:id="@+id/id"
+        android:id="@+id/passwordold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_button"

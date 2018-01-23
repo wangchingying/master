@@ -15,7 +15,7 @@ import android.widget.Toast;
 public class MasterBasicData extends AppCompatActivity {
 
     ListView lv;
-    String[] str= {"師父基本資料維護","待儲值訂單","服務中訂單"};
+    String[] str= {"基本資料維護","修改密碼"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +28,18 @@ public class MasterBasicData extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent it=new Intent(MasterBasicData.this,BasicDataMaintain.class);
-                startActivity(it);
+                switch (i)
+                {
+                    case 0:
+                        Intent it=new Intent(MasterBasicData.this,BasicDataMaintain.class);
+                        startActivity(it);
+                        break;
+                    case 1:
+                        Intent it1=new Intent(MasterBasicData.this,BasicDataMaintainPWD.class);
+                        startActivity(it1);
+                        break;
+                }
+
 
             }
         });

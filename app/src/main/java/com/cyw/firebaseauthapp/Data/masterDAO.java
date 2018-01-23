@@ -16,7 +16,8 @@ import java.util.ArrayList;
  * Created by Student on 2018/1/19.
  */
 
-public class masterDAO {
+public class masterDAO implements masterDAOInterface{
+
     public Context context;
     public ArrayList<master> mylist;
 

@@ -7,7 +7,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="順安整復中心師父管理系統"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -42,7 +42,9 @@
         <activity android:name=".MasterActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MasterBasicData" />
-        <activity android:name=".BasicDataMaintain"></activity>
+        <activity android:name=".BasicDataMaintain" />
+        <activity android:name=".BaiscDataMaintainPWD" />
+        <activity android:name=".BasicDataMaintainPWD"></activity>
     </application>
 
 </manifest>

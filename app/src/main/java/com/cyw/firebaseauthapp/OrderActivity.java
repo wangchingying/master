@@ -10,19 +10,18 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class MasterBasicData extends AppCompatActivity {
+public class OrderActivity extends AppCompatActivity {
 
     ListView lv;
-    String[] str= {"基本資料維護","修改密碼"};
-    //boolean fastback=false;
+    String[] str= {"新訂單","待儲值訂單","未結訂單","已結訂單"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_master_basic_data);
+        setContentView(R.layout.activity_order);
         lv=(ListView)findViewById(R.id.listView);
-        Myadaptor adapter=new Myadaptor();
+        OrderActivity.Myadaptor adapter=new OrderActivity.Myadaptor();
         lv.setAdapter(adapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -31,13 +30,20 @@ public class MasterBasicData extends AppCompatActivity {
                 switch (i)
                 {
                     case 0:
-                        Intent it=new Intent(MasterBasicData.this,BasicDataMaintain.class);
-                        startActivity(it);
+                        Intent it1=new Intent(OrderActivity.this,NewOrder.class);
+                        startActivity(it1);
                         break;
                     case 1:
-                        //fastback=true;
-                        Intent it1=new Intent(MasterBasicData.this,BasicDataMaintainPWD.class);
-                        startActivity(it1);
+                        Intent it2=new Intent(OrderActivity.this,WaitingMoney.class);
+                        startActivity(it2);
+                        break;
+                    case 2:
+                        Intent it3=new Intent(OrderActivity.this,OpenOrder.class);
+                        startActivity(it3);
+                        break;
+                    case 3:
+                        Intent it4=new Intent(OrderActivity.this,ClosedOrder.class);
+                        startActivity(it4);
                         break;
                 }
 
@@ -46,7 +52,7 @@ public class MasterBasicData extends AppCompatActivity {
         });
     }
 
-    class Myadaptor extends BaseAdapter     {
+    class Myadaptor extends BaseAdapter {
 
         @Override
         public int getCount() {
@@ -65,7 +71,7 @@ public class MasterBasicData extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            LayoutInflater inflater=LayoutInflater.from(MasterBasicData.this);
+            LayoutInflater inflater=LayoutInflater.from(OrderActivity.this);
             View v=inflater.inflate(R.layout.myitem,null);
             TextView tv=v.findViewById(R.id.textView);
             //Toast.makeText(MasterBasicData.this, String.valueOf(position), Toast.LENGTH_SHORT).show();
@@ -81,5 +87,5 @@ public class MasterBasicData extends AppCompatActivity {
         //if(fastback){finish();}//使用者按了clickedit時fastback就變true
     }
 
-
 }
+

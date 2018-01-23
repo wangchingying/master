@@ -14,7 +14,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn1"
+            android:id="@+id/masterData"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -36,7 +36,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn2"
+            android:id="@+id/orderData"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"

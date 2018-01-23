@@ -44,7 +44,12 @@
         <activity android:name=".MasterBasicData" />
         <activity android:name=".BasicDataMaintain" />
         <activity android:name=".BaiscDataMaintainPWD" />
-        <activity android:name=".BasicDataMaintainPWD"></activity>
+        <activity android:name=".BasicDataMaintainPWD" />
+        <activity android:name=".OrderActivity" />
+        <activity android:name=".NewOrder" />
+        <activity android:name=".WaitingMoney" />
+        <activity android:name=".OpenOrder" />
+        <activity android:name=".ClosedOrder"></activity>
     </application>
 
 </manifest>

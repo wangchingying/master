@@ -2,6 +2,7 @@ package com.cyw.firebaseauthapp;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.cyw.firebaseauthapp.Data.master;
 
+//註冊畫面
 public class RegisterActivity extends AppCompatActivity {
 
     EditText id,name,password,store,bankCode,bankAccount;
@@ -19,7 +21,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        id=(EditText)findViewById(R.id.passwordold);
+        id=(EditText)findViewById(R.id.pwdid);
         name=(EditText)findViewById(R.id.name);
         password=(EditText)findViewById(R.id.password);
         store=(EditText)findViewById(R.id.store);
@@ -42,6 +44,11 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             MainActivity.dao.add(new master(id.getText().toString(),  name.getText().toString(), password.getText().toString(),store.getText().toString(), bankCode.getText().toString(), bankAccount.getText().toString()));
+                            //將ID寫入ShaerdPref,供後續使用
+                            SharedPreferences sp = getSharedPreferences("basicdata", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sp.edit();
+                            editor.putString("id",id.getText().toString());
+                            editor.commit();
                             Toast.makeText(RegisterActivity.this, "請重新登入", Toast.LENGTH_SHORT).show();
                             finish();
                         }

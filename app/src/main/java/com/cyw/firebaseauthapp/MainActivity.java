@@ -2,6 +2,7 @@ package com.cyw.firebaseauthapp;
 
 import android.content.Intent;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -60,6 +61,12 @@ public class MainActivity extends AppCompatActivity {
                 if (dao.getMaster(ID) == null) {
                     Toast.makeText(MainActivity.this, "無此電話號碼,請修改或重新註冊!!", Toast.LENGTH_SHORT).show();
                 } else if (dao.getMaster(ID).password.equals(PWD)) {
+
+                    SharedPreferences sp = getSharedPreferences("basicdata", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("id",ID);
+                    editor.commit();
+
                     result = true;
                 } else {
                     Toast.makeText(MainActivity.this, "密碼錯誤", Toast.LENGTH_SHORT).show();

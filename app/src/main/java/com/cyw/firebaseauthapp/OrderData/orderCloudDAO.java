@@ -1,10 +1,9 @@
-package com.cyw.firebaseauthapp.Data;
+package com.cyw.firebaseauthapp.OrderData;
 
 import android.content.Context;
 import android.util.Log;
-
-import com.cyw.firebaseauthapp.Interface.masterDAOInterface;
-import com.cyw.firebaseauthapp.MainActivity;
+import com.cyw.firebaseauthapp.Data.master;
+import com.cyw.firebaseauthapp.Interface.orderDAOInterface;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -16,27 +15,22 @@ import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 
 /**
- * Created by Student on 2018/1/23.
+ * Created by USER on 2018/1/25.
  */
 
-public class masterCloudDAO implements masterDAOInterface {
+public class orderCloudDAO implements orderDAOInterface {
 
     public Context context;
-    public ArrayList<master> mylist;
+    public ArrayList<order> mylist;
     FirebaseDatabase database;
     DatabaseReference myRef;
 
-    public masterCloudDAO(final Context context) {
+    public orderCloudDAO(Context context) {
         this.context = context;
-
+        mylist = new ArrayList<>();
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("masterData");
-        //Log.d("null", myRef.child());
-        Log.d("null", myRef.getKey());
-        Log.d("null", myRef.getParent().toString());
-        Log.d("null", myRef.toString());
-        Log.d("null", myRef.getParent().toString());
-        Log.d("null", myRef.getRoot().toString());
+        myRef = database.getReference("orderData");
+
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -44,8 +38,11 @@ public class masterCloudDAO implements masterDAOInterface {
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
                 Gson gson = new Gson();
+                if (mylist == null)
+                {
+                    mylist = new ArrayList<>();
+                }
                 mylist = gson.fromJson(value, new TypeToken<ArrayList<master>>(){}.getType());
-
             }
             @Override
             public void onCancelled(DatabaseError error) {
@@ -53,12 +50,6 @@ public class masterCloudDAO implements masterDAOInterface {
 
             }
         });
-        if (mylist == null)
-        {
-            mylist = new ArrayList<>();
-
-        }
-
     }
 
     public void saveFile(){
@@ -70,7 +61,7 @@ public class masterCloudDAO implements masterDAOInterface {
     }
 
     @Override
-    public boolean add(master s) {
+    public boolean add(order s) {
         if (mylist == null)
         {
             mylist = new ArrayList<>();
@@ -84,16 +75,16 @@ public class masterCloudDAO implements masterDAOInterface {
     }
 
     @Override
-    public ArrayList<master> getList() {
+    public ArrayList<order> getList() {
         return mylist;
     }
 
     @Override
-    public master getMaster(String id) {
+    public order getOrder(String id) {
 
-        for (master s : mylist)
+        for (order s : mylist)
         {
-            if (s.id.equals(id))
+            if (s.orderId.equals(id))
             {
                 return s;
             }
@@ -102,16 +93,16 @@ public class masterCloudDAO implements masterDAOInterface {
     }
 
     @Override
-    public boolean update(master s) {
-        for (master t : mylist)
+    public boolean update(order s) {
+        for (order t : mylist)
         {
-            if (t.id.equals(s.id))
+            if (t.orderId.equals(s.orderId))
             {
-                t.name = s.name;
-                t.password = s.password;
-                t.store=s.store;
-                t.bankcode=s.bankcode;
-                t.accountNumber=s.accountNumber;
+                t.transferTime = s.transferTime;
+                t.transferMoney = s.transferMoney;
+                t.balance=s.balance;
+                t.customerfeedback=s.customerfeedback;
+
                 saveFile();
                 return true;
             }
@@ -121,9 +112,9 @@ public class masterCloudDAO implements masterDAOInterface {
 
     @Override
     public boolean delete(String id) {
-        for (master s : mylist)
+        for (order s : mylist)
         {
-            if (s.id.equals(id))
+            if (s.orderId.equals(id))
             {
                 mylist.remove(s);
                 saveFile();
@@ -132,5 +123,5 @@ public class masterCloudDAO implements masterDAOInterface {
         }
         return false;
     }
-
 }
+

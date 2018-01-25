@@ -2,6 +2,7 @@ package com.cyw.firebaseauthapp.Data;
 
 import android.content.Context;
 
+import com.cyw.firebaseauthapp.Interface.masterDAOInterface;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -16,7 +17,7 @@ import java.util.ArrayList;
  * Created by Student on 2018/1/19.
  */
 
-public class masterDAO implements masterDAOInterface{
+public class masterDAO implements masterDAOInterface {
 
     public Context context;
     public ArrayList<master> mylist;

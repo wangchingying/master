@@ -15,7 +15,7 @@ import android.widget.Toast;
 public class MasterBasicData extends AppCompatActivity {
 
     ListView lv;
-    String[] str= {"基本資料維護","修改密碼"};
+    String[] str= {"基本資料維護","修改密碼","療程資料"};
     //boolean fastback=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,10 @@ public class MasterBasicData extends AppCompatActivity {
                         //fastback=true;
                         Intent it1=new Intent(MasterBasicData.this,BasicDataMaintainPWD.class);
                         startActivity(it1);
+                        break;
+                    case 2:
+                        Intent it2=new Intent(MasterBasicData.this,BasicDataMaintainProgram.class);
+                        startActivity(it2);
                         break;
                 }
 

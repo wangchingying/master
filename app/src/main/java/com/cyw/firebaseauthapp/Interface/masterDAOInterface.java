@@ -1,4 +1,6 @@
-package com.cyw.firebaseauthapp.Data;
+package com.cyw.firebaseauthapp.Interface;
+
+import com.cyw.firebaseauthapp.Data.master;
 
 import java.util.ArrayList;
 

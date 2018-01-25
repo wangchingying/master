@@ -49,7 +49,9 @@
         <activity android:name=".NewOrder" />
         <activity android:name=".WaitingMoney" />
         <activity android:name=".OpenOrder" />
-        <activity android:name=".ClosedOrder"></activity>
+        <activity android:name=".ClosedOrder" />
+        <activity android:name=".BasicDataMaintainProgram" />
+        <activity android:name=".AddProgram"></activity>
     </application>
 
 </manifest>

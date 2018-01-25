@@ -1,7 +1,8 @@
 package com.cyw.firebaseauthapp.Data;
 
 import android.content.Context;
-import android.util.Log;
+
+import com.cyw.firebaseauthapp.Interface.masterDAOInterface;
 
 /**
  * Created by Student on 2018/1/23.

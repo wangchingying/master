@@ -1,10 +1,8 @@
-package com.cyw.firebaseauthapp.Data;
+package com.cyw.firebaseauthapp.Program;
 
+import com.cyw.firebaseauthapp.Interface.programDAOInterface;
 import android.content.Context;
-import android.util.Log;
 
-import com.cyw.firebaseauthapp.Interface.masterDAOInterface;
-import com.cyw.firebaseauthapp.MainActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,24 +17,19 @@ import java.util.ArrayList;
  * Created by Student on 2018/1/23.
  */
 
-public class masterCloudDAO implements masterDAOInterface {
+public class programCloudDAO implements programDAOInterface {
 
     public Context context;
-    public ArrayList<master> mylist;
+    public ArrayList<program> mylist;
     FirebaseDatabase database;
     DatabaseReference myRef;
 
-    public masterCloudDAO(final Context context) {
+    public programCloudDAO(Context context) {
         this.context = context;
-
+ //       mylist = new ArrayList<>();
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("masterData");
-        //Log.d("null", myRef.child());
-        Log.d("null", myRef.getKey());
-        Log.d("null", myRef.getParent().toString());
-        Log.d("null", myRef.toString());
-        Log.d("null", myRef.getParent().toString());
-        Log.d("null", myRef.getRoot().toString());
+        myRef = database.getReference("programData");
+
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -44,8 +37,7 @@ public class masterCloudDAO implements masterDAOInterface {
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
                 Gson gson = new Gson();
-                mylist = gson.fromJson(value, new TypeToken<ArrayList<master>>(){}.getType());
-
+                mylist = gson.fromJson(value, new TypeToken<ArrayList<program>>(){}.getType());
             }
             @Override
             public void onCancelled(DatabaseError error) {
@@ -56,7 +48,6 @@ public class masterCloudDAO implements masterDAOInterface {
         if (mylist == null)
         {
             mylist = new ArrayList<>();
-
         }
 
     }
@@ -70,7 +61,7 @@ public class masterCloudDAO implements masterDAOInterface {
     }
 
     @Override
-    public boolean add(master s) {
+    public boolean add(program s) {
         if (mylist == null)
         {
             mylist = new ArrayList<>();
@@ -84,16 +75,16 @@ public class masterCloudDAO implements masterDAOInterface {
     }
 
     @Override
-    public ArrayList<master> getList() {
+    public ArrayList<program> getList() {
         return mylist;
     }
 
     @Override
-    public master getMaster(String id) {
+    public program getProgram(String id) {
 
-        for (master s : mylist)
+        for (program s : mylist)
         {
-            if (s.id.equals(id))
+            if (s.programID.equals(id))
             {
                 return s;
             }
@@ -102,17 +93,15 @@ public class masterCloudDAO implements masterDAOInterface {
     }
 
     @Override
-    public boolean update(master s) {
-        for (master t : mylist)
+    public boolean update(program s) {
+        for (program t : mylist)
         {
-            if (t.id.equals(s.id))
+            if (t.programID.equals(s.programID))
             {
-                t.name = s.name;
-                t.password = s.password;
-                t.store=s.store;
-                t.bankcode=s.bankcode;
-                t.accountNumber=s.accountNumber;
-                saveFile();
+//                t.masterID = s.masterID;
+                t.price = s.price;
+                t.times=s.times;
+               saveFile();
                 return true;
             }
         }
@@ -121,9 +110,9 @@ public class masterCloudDAO implements masterDAOInterface {
 
     @Override
     public boolean delete(String id) {
-        for (master s : mylist)
+        for (program s : mylist)
         {
-            if (s.id.equals(id))
+            if (s.programID.equals(id))
             {
                 mylist.remove(s);
                 saveFile();
@@ -132,5 +121,4 @@ public class masterCloudDAO implements masterDAOInterface {
         }
         return false;
     }
-
 }

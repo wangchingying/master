@@ -36,7 +36,7 @@ public class BasicDataMaintainPWD extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(MainActivity.dao.getMaster(ID).password.equals(oldpwd.getText().toString())
+                if(MainActivity.dao_m.getMaster(ID).password.equals(oldpwd.getText().toString())
                         && newpwd.getText().toString()!="")
                 {
                     AlertDialog.Builder builder=new AlertDialog.Builder(BasicDataMaintainPWD.this);
@@ -45,8 +45,8 @@ public class BasicDataMaintainPWD extends AppCompatActivity {
                     builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            MainActivity.dao.getMaster(ID).password=newpwd.getText().toString();
-                            MainActivity.dao.saveFile();
+                            MainActivity.dao_m.getMaster(ID).password=newpwd.getText().toString();
+                            MainActivity.dao_m.saveFile();
                             Toast.makeText(BasicDataMaintainPWD.this, "密碼修改完成", Toast.LENGTH_SHORT).show();
                             finish();
                         }

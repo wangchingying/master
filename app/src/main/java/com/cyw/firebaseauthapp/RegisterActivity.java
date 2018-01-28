@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
                     builder.setPositiveButton("確認送出", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            MainActivity.dao.add(new master(id.getText().toString(),  name.getText().toString(), password.getText().toString(),store.getText().toString(), bankCode.getText().toString(), bankAccount.getText().toString()));
+                            MainActivity.dao_m.add(new master(id.getText().toString(),  name.getText().toString(), password.getText().toString(),store.getText().toString(), bankCode.getText().toString(), bankAccount.getText().toString()));
                             //將ID寫入ShaerdPref,供後續使用
                             SharedPreferences sp = getSharedPreferences("basicdata", MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();

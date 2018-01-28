@@ -51,7 +51,7 @@
         <activity android:name=".OpenOrder" />
         <activity android:name=".ClosedOrder" />
         <activity android:name=".BasicDataMaintainProgram" />
-        <activity android:name=".AddProgram"></activity>
+        <activity android:name=".AddProgram" />
     </application>
 
 </manifest>

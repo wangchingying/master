@@ -27,7 +27,6 @@ public class orderCloudDAO implements orderDAOInterface {
 
     public orderCloudDAO(Context context) {
         this.context = context;
-        mylist = new ArrayList<>();
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("orderData");
 
@@ -38,10 +37,7 @@ public class orderCloudDAO implements orderDAOInterface {
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
                 Gson gson = new Gson();
-                if (mylist == null)
-                {
-                    mylist = new ArrayList<>();
-                }
+
                 mylist = gson.fromJson(value, new TypeToken<ArrayList<master>>(){}.getType());
             }
             @Override
@@ -50,6 +46,11 @@ public class orderCloudDAO implements orderDAOInterface {
 
             }
         });
+        if (mylist == null)
+        {
+            mylist = new ArrayList<>();
+        }
+
     }
 
     public void saveFile(){
@@ -68,7 +69,7 @@ public class orderCloudDAO implements orderDAOInterface {
         }
 
         mylist.add(s);
-//        Log.d("Hereadd", "saveFile"+String.valueOf(s.id));
+        //Log.d("addorder", "saveFile"+String.valueOf(mylist.size())+"orderID:"+String.valueOf(s.orderId));
 
         saveFile();
         return true;
@@ -98,9 +99,9 @@ public class orderCloudDAO implements orderDAOInterface {
         {
             if (t.orderId.equals(s.orderId))
             {
-                t.transferTime = s.transferTime;
-                t.transferMoney = s.transferMoney;
-                t.balance=s.balance;
+//                t.transferTime = s.transferTime;
+//                t.transferMoney = s.transferMoney;
+//                t.balanceTimes=s.balanceTimes;
                 t.customerfeedback=s.customerfeedback;
 
                 saveFile();

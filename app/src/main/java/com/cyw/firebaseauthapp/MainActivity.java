@@ -14,6 +14,9 @@ import android.widget.Toast;
 import com.cyw.firebaseauthapp.Data.DBtype;
 import com.cyw.firebaseauthapp.Data.master;
 import com.cyw.firebaseauthapp.Data.masterCloudDAO;
+import com.cyw.firebaseauthapp.OrderData.orderCloudDAO;
+import com.cyw.firebaseauthapp.Program.programCloudDAO;
+import com.cyw.firebaseauthapp.VIPData.VIPCloudDAO;
 
 import java.util.ArrayList;
 
@@ -23,7 +26,10 @@ public class MainActivity extends AppCompatActivity {
     DBtype dbType;
     Button login_btn,register_btn;
     EditText id,password;
-    public static masterCloudDAO dao;
+    public static masterCloudDAO dao_m;
+    public static programCloudDAO dao_p;
+    public static orderCloudDAO dao_o;
+    public static VIPCloudDAO dao_v;
 
 
     @Override
@@ -32,7 +38,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //dbType = DBtype.CLOUD; // 1:檔案 2:Firebase CLOUD
         //dao = masterDAOFactory.getDAOInstance(this, dbType);
-        dao = new masterCloudDAO(MainActivity.this);
+        dao_m = new masterCloudDAO(MainActivity.this);
+        dao_p = new programCloudDAO(MainActivity.this);
+        dao_o = new orderCloudDAO(MainActivity.this);
+        dao_v = new VIPCloudDAO(MainActivity.this);
         login_btn = (Button) findViewById(R.id.login_btn);
         register_btn = (Button) findViewById(R.id.register_btn);
         id = (EditText) findViewById(R.id.pwdid);
@@ -44,16 +53,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String ID = id.getText().toString();
                 String PWD = password.getText().toString();
-                if(dao.getList()==null){//firebase裡面都沒資料時的寫法
+                if(dao_m.getList()==null){//firebase裡面都沒資料時的寫法
                     Toast.makeText(MainActivity.this, "請進行註冊", Toast.LENGTH_SHORT).show();
                 }else if(id.getText().toString().equals("")){
                     Toast.makeText(MainActivity.this, "請輸入手機號碼,不能空白喔~", Toast.LENGTH_SHORT).show();
                 }else if(password.getText().toString().equals("")) {
                     Toast.makeText(MainActivity.this, "請輸入密碼,不能空白喔~", Toast.LENGTH_SHORT).show();
 
-                }else if (dao.getMaster(ID)==null){
+                }else if (dao_m.getMaster(ID)==null){
                     Toast.makeText(MainActivity.this, "無此電話號碼,請修改或重新註冊!!", Toast.LENGTH_SHORT).show();
-                }else if (dao.getMaster(ID).password.equals(PWD)){
+                }else if (dao_m.getMaster(ID).password.equals(PWD)){
                     SharedPreferences sp = getSharedPreferences("basicdata", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putString("id",id.getText().toString());

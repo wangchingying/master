@@ -59,6 +59,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "550673459805-hdt2264sl2lghb0tfi6b665ab3t4geo7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cyw.a2018011701",
+            "certificate_hash": "6024ac75723e1302cf683517bcf3349cc7c77a46"
+          }
+        },
+        {
           "client_id": "550673459805-6ctdi3vidcnsqbm8f1cg68nerh74o7cg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -102,6 +110,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "550673459805-g4fvcoao22lhr97npkoapi09n8oiuihh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cyw.firebaseauthapp",
+            "certificate_hash": "6024ac75723e1302cf683517bcf3349cc7c77a46"
+          }
+        },
         {
           "client_id": "550673459805-s008sqfme352g49bc9341pp8umv1ok97.apps.googleusercontent.com",
           "client_type": 1,

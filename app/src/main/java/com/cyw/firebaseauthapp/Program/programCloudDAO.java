@@ -1,8 +1,11 @@
 package com.cyw.firebaseauthapp.Program;
 
+import com.cyw.firebaseauthapp.BasicDataMaintainProgram;
 import com.cyw.firebaseauthapp.Interface.programDAOInterface;
 import android.content.Context;
+import android.util.Log;
 
+import com.cyw.firebaseauthapp.MainActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,9 +29,12 @@ public class programCloudDAO implements programDAOInterface {
 
     public programCloudDAO(Context context) {
         this.context = context;
- //       mylist = new ArrayList<>();
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("programData");
+        if (mylist == null)
+        {
+            mylist = new ArrayList<>();
+        }
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -38,6 +44,8 @@ public class programCloudDAO implements programDAOInterface {
                 String value = dataSnapshot.getValue(String.class);
                 Gson gson = new Gson();
                 mylist = gson.fromJson(value, new TypeToken<ArrayList<program>>(){}.getType());
+                Log.d("here_onDataChange",String.valueOf(mylist.size()));
+//                ((BasicDataMaintainProgram) context).refreshData();
             }
             @Override
             public void onCancelled(DatabaseError error) {
@@ -45,11 +53,7 @@ public class programCloudDAO implements programDAOInterface {
 
             }
         });
-        if (mylist == null)
-        {
-            mylist = new ArrayList<>();
-        }
-
+        Log.d("here_Constructor",String.valueOf(mylist.size()));
     }
 
     public void saveFile(){
@@ -80,11 +84,11 @@ public class programCloudDAO implements programDAOInterface {
     }
 
     @Override
-    public program getProgram(String id) {
+    public program getProgram(String masterid,String programid) {
 
         for (program s : mylist)
         {
-            if (s.programID.equals(id))
+            if (s.masterID.equals(masterid)&&s.programID.equals(programid))
             {
                 return s;
             }
@@ -96,9 +100,8 @@ public class programCloudDAO implements programDAOInterface {
     public boolean update(program s) {
         for (program t : mylist)
         {
-            if (t.programID.equals(s.programID))
+            if (t.masterID.equals(s.masterID)&&t.programID.equals(s.programID))
             {
-//                t.masterID = s.masterID;
                 t.price = s.price;
                 t.times=s.times;
                saveFile();
@@ -109,10 +112,10 @@ public class programCloudDAO implements programDAOInterface {
     }
 
     @Override
-    public boolean delete(String id) {
+    public boolean delete(String masterid,String programid) {
         for (program s : mylist)
         {
-            if (s.programID.equals(id))
+            if (s.masterID.equals(s.masterID)&&s.programID.equals(s.programID))
             {
                 mylist.remove(s);
                 saveFile();

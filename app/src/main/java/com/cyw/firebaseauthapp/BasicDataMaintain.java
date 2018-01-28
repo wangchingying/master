@@ -32,10 +32,10 @@ public class BasicDataMaintain extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("basicdata", MODE_PRIVATE);
         ID = sp.getString("id", "");
         mdid.setText(ID);
-        mdname.setText(MainActivity.dao.getMaster(ID).name.toString());
-        mdstore.setText(MainActivity.dao.getMaster(ID).store.toString());
-        mdbankcode.setText(MainActivity.dao.getMaster(ID).bankcode.toString());
-        mdbankaccount.setText(MainActivity.dao.getMaster(ID).accountNumber.toString());
+        mdname.setText(MainActivity.dao_m.getMaster(ID).name.toString());
+        mdstore.setText(MainActivity.dao_m.getMaster(ID).store.toString());
+        mdbankcode.setText(MainActivity.dao_m.getMaster(ID).bankcode.toString());
+        mdbankaccount.setText(MainActivity.dao_m.getMaster(ID).accountNumber.toString());
 
         mdsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,11 +46,11 @@ public class BasicDataMaintain extends AppCompatActivity {
                 builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        MainActivity.dao.getMaster(ID).name=mdname.getText().toString();
-                        MainActivity.dao.getMaster(ID).store=mdstore.getText().toString();
-                        MainActivity.dao.getMaster(ID).bankcode=mdbankcode.getText().toString();
-                        MainActivity.dao.getMaster(ID).accountNumber=mdbankaccount.getText().toString();
-                        MainActivity.dao.saveFile();
+                        MainActivity.dao_m.getMaster(ID).name=mdname.getText().toString();
+                        MainActivity.dao_m.getMaster(ID).store=mdstore.getText().toString();
+                        MainActivity.dao_m.getMaster(ID).bankcode=mdbankcode.getText().toString();
+                        MainActivity.dao_m.getMaster(ID).accountNumber=mdbankaccount.getText().toString();
+                        MainActivity.dao_m.saveFile();
                         Toast.makeText(BasicDataMaintain.this, "更新完成", Toast.LENGTH_SHORT).show();
                         finish();
                     }

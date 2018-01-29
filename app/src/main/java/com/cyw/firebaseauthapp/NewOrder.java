@@ -96,7 +96,9 @@ public class NewOrder extends AppCompatActivity {
         final ArrayList<program> plist = MainActivity.dao_p.getList();
         ArrayList<String> programName = new ArrayList<>();
         for (int i = 0; i < plist.size(); i++) {
-            programName.add(plist.get(i).programID);
+            if(plist.get(i).masterID.toString().equals(masterID)) {
+                programName.add(plist.get(i).programID);
+            }
         }
         ArrayAdapter<String> List = new ArrayAdapter<>(NewOrder.this,
                 android.R.layout.simple_spinner_dropdown_item,
@@ -156,8 +158,6 @@ public class NewOrder extends AppCompatActivity {
         payCash.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("addorderbefore",String.valueOf(MainActivity.dao_o.mylist.size()));
-                int a=MainActivity.dao_o.mylist.size();
                 if(cashValue.getText().toString().equals("")||MainActivity.dao_v.getList()==null ||
                         MainActivity.dao_v.getVIP(VIPID_order.getText().toString())==null){
                     Toast.makeText(NewOrder.this, "請輸入客人帳號或儲值現金", Toast.LENGTH_SHORT).show();
@@ -179,9 +179,6 @@ public class NewOrder extends AppCompatActivity {
                             Integer.valueOf(times_order.getText().toString()),
                             "現金儲值"));
                     Toast.makeText(NewOrder.this, "現金儲值成功,可開始預約", Toast.LENGTH_SHORT).show();
-                    //Log.d("orderorderorder",MainActivity.dao_o.getList().toString());
-                    Log.d("addorderafter",String.valueOf(MainActivity.dao_o.mylist.size()));
-
                     finish();
                 }
             }

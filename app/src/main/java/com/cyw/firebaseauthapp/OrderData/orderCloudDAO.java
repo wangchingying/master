@@ -29,6 +29,10 @@ public class orderCloudDAO implements orderDAOInterface {
         this.context = context;
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("orderData");
+        if (mylist == null)
+        {
+            mylist = new ArrayList<>();
+        }
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -38,7 +42,7 @@ public class orderCloudDAO implements orderDAOInterface {
                 String value = dataSnapshot.getValue(String.class);
                 Gson gson = new Gson();
 
-                mylist = gson.fromJson(value, new TypeToken<ArrayList<master>>(){}.getType());
+                mylist = gson.fromJson(value, new TypeToken<ArrayList<order>>(){}.getType());
             }
             @Override
             public void onCancelled(DatabaseError error) {
@@ -46,10 +50,6 @@ public class orderCloudDAO implements orderDAOInterface {
 
             }
         });
-        if (mylist == null)
-        {
-            mylist = new ArrayList<>();
-        }
 
     }
 
@@ -99,9 +99,9 @@ public class orderCloudDAO implements orderDAOInterface {
         {
             if (t.orderId.equals(s.orderId))
             {
-//                t.transferTime = s.transferTime;
-//                t.transferMoney = s.transferMoney;
-//                t.balanceTimes=s.balanceTimes;
+                t.transferTime = s.transferTime;
+                t.transferMoney = s.transferMoney;
+                t.balanceTimes=s.balanceTimes;
                 t.customerfeedback=s.customerfeedback;
 
                 saveFile();

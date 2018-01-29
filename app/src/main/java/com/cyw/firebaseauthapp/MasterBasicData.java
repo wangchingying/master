@@ -22,7 +22,7 @@ public class MasterBasicData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_master_basic_data);
         lv=(ListView)findViewById(R.id.listView);
-        Myadaptor adapter=new Myadaptor();
+        Myadapter adapter=new Myadapter();
         lv.setAdapter(adapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -50,7 +50,7 @@ public class MasterBasicData extends AppCompatActivity {
         });
     }
 
-    class Myadaptor extends BaseAdapter     {
+    class Myadapter extends BaseAdapter     {
 
         @Override
         public int getCount() {

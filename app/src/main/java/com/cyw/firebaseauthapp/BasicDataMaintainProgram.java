@@ -40,17 +40,15 @@ public class BasicDataMaintainProgram extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("basicdata", MODE_PRIVATE);
         ID = sp.getString("id", "");
 
-//        dao = new programFileDAO(BasicDataMaintainProgram.this);
-
         adapter = new Myadapter();
         lv1.setAdapter(adapter);
-        //adapter.notifyDataSetChanged();
-//        lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//            }
-//        });
+
+        lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });
     }
 
     class Myadapter extends BaseAdapter {

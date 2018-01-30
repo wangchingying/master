@@ -77,9 +77,9 @@ public class ClosedOrder extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater=LayoutInflater.from(ClosedOrder.this);
-            View v=inflater.inflate(R.layout.myitem_order,null);
-            TextView tv=v.findViewById(R.id.OID);
-            TextView tv1=v.findViewById(R.id.VIPname);
+            View v=inflater.inflate(R.layout.myitem_closed_order,null);
+            TextView tv=v.findViewById(R.id.textView30);
+            TextView tv1=v.findViewById(R.id.textView32);
             String OID=closedorderList.get(position).toString();
             String CID=MainActivity.dao_o.getOrder(OID).customerId;
             String CName=MainActivity.dao_v.getVIP(CID).name;

@@ -75,13 +75,13 @@ public class TobeConfirmOrder extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater=LayoutInflater.from(TobeConfirmOrder.this);
-            View v=inflater.inflate(R.layout.myitem_order,null);
-            TextView tv=v.findViewById(R.id.OID);
-            TextView tv1=v.findViewById(R.id.VIPname);
+            View v=inflater.inflate(R.layout.myitem_tbc_order,null);
+            TextView tv=v.findViewById(R.id.textView22);
+            TextView tv1=v.findViewById(R.id.textView23);
             String OID=tbcList.get(position).toString();
             String CID=MainActivity.dao_o.getOrder(OID).customerId;
             String CName=MainActivity.dao_v.getVIP(CID).name;
-            Log.d("waiting Money","order:"+OID+" VIPid:"+CID+"  VIPname:"+CName);
+            Log.d("tbc order","order:"+OID+" VIPid:"+CID+"  VIPname:"+CName);
             tv.setText("訂單號碼:"+OID);
             tv1.setText("客戶姓名:"+CName);
             return v;

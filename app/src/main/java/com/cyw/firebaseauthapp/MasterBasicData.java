@@ -21,7 +21,7 @@ public class MasterBasicData extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_master_basic_data);
-        lv=(ListView)findViewById(R.id.listView);
+        lv=(ListView)findViewById(R.id.listView_masterbasicdata);
         Myadapter adapter=new Myadapter();
         lv.setAdapter(adapter);
 

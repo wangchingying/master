@@ -28,6 +28,11 @@ public class VIPCloudDAO implements VIPDAOInterface{
 
     public VIPCloudDAO(Context context) {
         this.context = context;
+        if (mylist == null)
+        {
+            mylist = new ArrayList<>();
+
+        }
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("VIPData");
@@ -47,11 +52,6 @@ public class VIPCloudDAO implements VIPDAOInterface{
 
             }
         });
-        if (mylist == null)
-        {
-            mylist = new ArrayList<>();
-
-        }
 
     }
 

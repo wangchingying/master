@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cyw.firebaseauthapp">
-
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -43,7 +44,6 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MasterBasicData" />
         <activity android:name=".BasicDataMaintain" />
-        <activity android:name=".BaiscDataMaintainPWD" />
         <activity android:name=".BasicDataMaintainPWD" />
         <activity android:name=".OrderActivity" />
         <activity android:name=".NewOrder" />
@@ -52,6 +52,8 @@
         <activity android:name=".ClosedOrder" />
         <activity android:name=".BasicDataMaintainProgram" />
         <activity android:name=".AddProgram" />
+        <activity android:name=".TobeConfirmOrder" />
+        <activity android:name=".StoreLoc"></activity>
     </application>
 
 </manifest>

@@ -3,6 +3,7 @@ package com.cyw.firebaseauthapp;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 public class OpenOrder extends AppCompatActivity {
 
     ListView lv;
-    ArrayList<String> wMoneyList;
+    ArrayList<String> openorderList;
     ArrayList<order> orderList;
     String masterID;
 
@@ -27,18 +28,20 @@ public class OpenOrder extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_open_order);
-        lv=(ListView)findViewById(R.id.listView);
+        lv=(ListView)findViewById(R.id.listView_openorder);
 
         SharedPreferences sp = getSharedPreferences("basicdata", MODE_PRIVATE);
         masterID = sp.getString("id", "");
         orderList=MainActivity.dao_o.getList();
-        wMoneyList=new ArrayList<>();
-        for(int i=0;i<Integer.valueOf(orderList.size());i++)
+        openorderList=new ArrayList<>();
+
+        for(int i=0;i<orderList.size();i++)
         {
             if(orderList.get(i).masterId.toString().equals(masterID)
-                    &&(Integer.valueOf(orderList.get(i).balanceTimes)>0))
+                    &&(orderList.get(i).balanceTimes>0))
             {
-                wMoneyList.add(orderList.get(i).orderId);
+                Log.d("order","抓的"+orderList.get(i).masterId.toString()+"原本:"+masterID);
+                openorderList.add(orderList.get(i).orderId);
             }
 
         }
@@ -60,7 +63,7 @@ public class OpenOrder extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return orderList.size();
+            return openorderList.size();
         }
 
         @Override
@@ -79,13 +82,22 @@ public class OpenOrder extends AppCompatActivity {
             View v=inflater.inflate(R.layout.myitem_order,null);
             TextView tv=v.findViewById(R.id.OID);
             TextView tv1=v.findViewById(R.id.VIPname);
-            String CID=orderList.get(position).customerId.toString();
-            VIP vip=MainActivity.dao_v.getVIP(CID);
-
-            tv.setText("訂單號碼:"+orderList.get(position).orderId);
-            tv1.setText("客戶姓名:"+vip.name.toString()+"剩餘次數:"+Integer.valueOf(orderList.get(position).balanceTimes).toString());
+            String OID=openorderList.get(position).toString();
+            String CID=MainActivity.dao_o.getOrder(OID).customerId;
+            String CName=MainActivity.dao_v.getVIP(CID).name;
+            Log.d("open order","order:"+OID+" VIPid:"+CID+"  VIPname:"+CName);
+            tv.setText("訂單號碼:"+OID);
+            tv1.setText("客戶姓名:"+CName);
             return v;
 
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //openorderList.clear();
+    }
+
+
 }

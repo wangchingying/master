@@ -25,10 +25,10 @@ import java.util.ArrayList;
 public class BasicDataMaintainProgram extends AppCompatActivity {
 
     ListView lv1;
-    String ID;
-//    public static programFileDAO dao;
+    String masterID;
     Myadapter adapter;
-    //ArrayList<program> programArrayList;
+    ArrayList<String> mpList;
+    ArrayList<program> pList;
 
     //boolean fastback=false;
     @Override
@@ -38,8 +38,19 @@ public class BasicDataMaintainProgram extends AppCompatActivity {
         lv1 = (ListView) findViewById(R.id.listViewp);
 
         SharedPreferences sp = getSharedPreferences("basicdata", MODE_PRIVATE);
-        ID = sp.getString("id", "");
+        masterID = sp.getString("id", "");
 
+        pList=MainActivity.dao_p.getList();
+        mpList=new ArrayList<>();
+        for(int i=0;i<pList.size();i++)
+        {
+            if(pList.get(i).masterID.toString().equals(masterID))
+            {
+                //Log.d("order","抓的"+orderList.get(i).masterId.toString()+"原本:"+masterID);
+                mpList.add(pList.get(i).programID);
+            }
+
+        }
         adapter = new Myadapter();
         lv1.setAdapter(adapter);
 
@@ -55,7 +66,7 @@ public class BasicDataMaintainProgram extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return MainActivity.dao_p.mylist.size();
+            return mpList.size();
         }
 
         @Override
@@ -82,11 +93,12 @@ public class BasicDataMaintainProgram extends AppCompatActivity {
             TextView tv8 = v.findViewById(R.id.textView16);
             //Toast.makeText(MasterBasicData.this, String.valueOf(position), Toast.LENGTH_SHORT).show();
             //Log.d("here_Myadapter", String.valueOf(dao.getList().size()));
-
-            tv5.setText(MainActivity.dao_m.getMaster(ID).name.toString());
-            tv6.setText(MainActivity.dao_p.getList().get(position).programID.toString());
-            tv7.setText(Integer.valueOf(MainActivity.dao_p.getList().get(position).price).toString());
-            tv8.setText(Integer.valueOf(MainActivity.dao_p.getList().get(position).times).toString());
+            //master m=MainActivity.dao_m.getMaster(masterID);
+            program p=MainActivity.dao_p.getProgram(masterID,mpList.get(position).toString());
+                tv5.setText(masterID);
+                tv6.setText(p.programID.toString());
+                tv7.setText(Integer.valueOf(p.price).toString());
+                tv8.setText(Integer.valueOf(p.times).toString());
 
             return v;
 

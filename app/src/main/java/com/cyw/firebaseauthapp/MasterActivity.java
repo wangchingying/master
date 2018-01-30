@@ -9,7 +9,7 @@ import android.widget.Button;
 //師父主畫面共六顆按鈕,1.師父基本資料連至(BasicDataMaintain,BasicDataMainPWD)
 // 2.訂單連至(OrderActivity,WaitingMoney,OpenOrder,ClosedOrder)
 // 3.預約連至
-// 4
+// 4.分店資訊連至
 // 5
 // 6
 public class MasterActivity extends AppCompatActivity implements View.OnClickListener{
@@ -50,6 +50,8 @@ public class MasterActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.btn3:
                 break;
             case R.id.store:
+                Intent it4=new Intent(MasterActivity.this,StoreLoc.class);
+                startActivity(it4);
                 break;
             case R.id.btn5:
                 break;

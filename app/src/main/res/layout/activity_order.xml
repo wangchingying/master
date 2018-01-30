@@ -7,7 +7,7 @@
     tools:context="com.cyw.firebaseauthapp.OrderActivity">
 
     <ListView
-        android:id="@+id/listView"
+        android:id="@+id/listView_order"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"

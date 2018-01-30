@@ -16,22 +16,20 @@ import com.cyw.firebaseauthapp.OrderData.order;
 
 import java.util.ArrayList;
 
-public class ClosedOrder extends AppCompatActivity {
+public class TobeConfirmOrder extends AppCompatActivity {
     ListView lv;
-    ArrayList<String> closedorderList;
+    ArrayList<String> tbcList;
     ArrayList<order> orderList;
     String masterID;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_closed_order);
-        lv=(ListView)findViewById(R.id.listView_closedorder);
-
+        setContentView(R.layout.activity_tobe_confirm_order);
+        lv=(ListView)findViewById(R.id.listView_tbc);
         SharedPreferences sp = getSharedPreferences("basicdata", MODE_PRIVATE);
         masterID = sp.getString("id", "");
         orderList=MainActivity.dao_o.getList();
-        closedorderList=new ArrayList<>();
+        tbcList=new ArrayList<>();
 
         for(int i=0;i<orderList.size();i++)
         {
@@ -39,7 +37,7 @@ public class ClosedOrder extends AppCompatActivity {
                     &&(orderList.get(i).transferMoney>0)&&(orderList.get(i).balanceTimes==0))
             {
                 Log.d("order","抓的"+orderList.get(i).masterId.toString()+"原本:"+masterID);
-                closedorderList.add(orderList.get(i).orderId);
+                tbcList.add(orderList.get(i).orderId);
             }
 
         }
@@ -61,7 +59,7 @@ public class ClosedOrder extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return closedorderList.size();
+            return tbcList.size();
         }
 
         @Override
@@ -76,14 +74,14 @@ public class ClosedOrder extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            LayoutInflater inflater=LayoutInflater.from(ClosedOrder.this);
+            LayoutInflater inflater=LayoutInflater.from(TobeConfirmOrder.this);
             View v=inflater.inflate(R.layout.myitem_order,null);
             TextView tv=v.findViewById(R.id.OID);
             TextView tv1=v.findViewById(R.id.VIPname);
-            String OID=closedorderList.get(position).toString();
+            String OID=tbcList.get(position).toString();
             String CID=MainActivity.dao_o.getOrder(OID).customerId;
             String CName=MainActivity.dao_v.getVIP(CID).name;
-            Log.d("open order","order:"+OID+" VIPid:"+CID+"  VIPname:"+CName);
+            Log.d("waiting Money","order:"+OID+" VIPid:"+CID+"  VIPname:"+CName);
             tv.setText("訂單號碼:"+OID);
             tv1.setText("客戶姓名:"+CName);
             return v;
@@ -94,7 +92,7 @@ public class ClosedOrder extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        //openorderList.clear();
+        //wMoneyList.clear();
     }
 
 

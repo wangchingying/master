@@ -24,6 +24,7 @@ public class WaitingMoney extends AppCompatActivity {
     ArrayList<String> wMoneyList;
     ArrayList<order> orderList;
     String masterID;
+    Myadapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,26 +37,36 @@ public class WaitingMoney extends AppCompatActivity {
         orderList=MainActivity.dao_o.getList();
         wMoneyList=new ArrayList<>();
 
+
+
+
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        wMoneyList.clear();
         for(int i=0;i<orderList.size();i++)
         {
             if(orderList.get(i).masterId.toString().equals(masterID)
                     &&(orderList.get(i).flag.equals(flag.WAIT_TRANSFER)))
             {
-                Log.d("order","抓的"+orderList.get(i).masterId.toString()+"原本:"+masterID);
+                //Log.d("order","抓的"+orderList.get(i).masterId.toString()+"原本:"+masterID);
                 wMoneyList.add(orderList.get(i).orderId);
             }
 
         }
 
 
-        Myadapter adapter=new Myadapter();
-
+        adapter=new Myadapter();
         lv.setAdapter(adapter);
+
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-
+                Intent it=new Intent(WaitingMoney.this,WaitingMoney_detail.class);
+                String OID=wMoneyList.get(i).toString();
+                it.putExtra("OrderID",OID);
+                startActivity(it);
             }
         });
     }
@@ -80,25 +91,21 @@ public class WaitingMoney extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater=LayoutInflater.from(WaitingMoney.this);
-            View v=inflater.inflate(R.layout.myitem_order,null);
-            TextView tv=v.findViewById(R.id.OID);
-            TextView tv1=v.findViewById(R.id.VIPname);
+            View v=inflater.inflate(R.layout.myitem,null);
+            TextView tv=v.findViewById(R.id.textView);
+            //TextView tv1=v.findViewById(R.id.VIPname);
             String OID=wMoneyList.get(position).toString();
-            String CID=MainActivity.dao_o.getOrder(OID).customerId;
-            String CName=MainActivity.dao_v.getVIP(CID).name;
-            Log.d("waiting Transfer","order:"+OID+" VIPid:"+CID+"  VIPname:"+CName);
+            //String CID=MainActivity.dao_o.getOrder(OID).customerId;
+            //String CName=MainActivity.dao_v.getVIP(CID).name;
+            //Log.d("waiting Transfer","order:"+OID+" VIPid:"+CID+"  VIPname:"+CName);
             tv.setText("訂單號碼:"+OID);
-            tv1.setText("客戶姓名:"+CName);
+            //tv1.setText("客戶姓名:"+CName);
             return v;
 
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //wMoneyList.clear();
-    }
+
 
 
 }

@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,16 +17,12 @@ import android.widget.Toast;
 import com.cyw.firebaseauthapp.Data.master;
 import com.cyw.firebaseauthapp.OrderData.flag;
 import com.cyw.firebaseauthapp.OrderData.order;
-import com.cyw.firebaseauthapp.OrderData.orderCloudDAO;
 
 import com.cyw.firebaseauthapp.Program.program;
-import com.cyw.firebaseauthapp.VIPData.VIPCloudDAO;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 public class NewOrder extends AppCompatActivity {
 
@@ -42,20 +37,20 @@ public class NewOrder extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_order);
-        orderID = (TextView) findViewById(R.id.orderID);
-        masterName_order = (TextView) findViewById(R.id.masterName_order);
-        store_order = (TextView) findViewById(R.id.store_order);
-        price_order = (TextView) findViewById(R.id.price_order);
-        times_order = (TextView) findViewById(R.id.times_order);
-        bankCode_order = (TextView) findViewById(R.id.bankCode_order);
-        bankAccount_order = (TextView) findViewById(R.id.bankAccount_order);
-        VIPname_order = (TextView) findViewById(R.id.VIPname_order);
+        orderID = (TextView) findViewById(R.id.orderId_wmd);
+        masterName_order = (TextView) findViewById(R.id.masterName__wmd);
+        store_order = (TextView) findViewById(R.id.store__wmd);
+        price_order = (TextView) findViewById(R.id.price__wmd);
+        times_order = (TextView) findViewById(R.id.times__wmd);
+        bankCode_order = (TextView) findViewById(R.id.bankCode__wmd);
+        bankAccount_order = (TextView) findViewById(R.id.bankAccount__wmd);
+        VIPname_order = (TextView) findViewById(R.id.VIPname__oo);
         VIPID_order = (EditText) findViewById(R.id.VIPID_order);
         confirmVIP = (Button) findViewById(R.id.confirmVIP);
         daypickbtn = (Button) findViewById(R.id.daypickbtn);
         deadline = (TextView) findViewById(R.id.deadline);
         payTransfer = (Button) findViewById(R.id.payTransfer);
-        payCash = (Button) findViewById(R.id.payCash);
+        payCash = (Button) findViewById(R.id.payCash_wmd);
         cashValue=(EditText)findViewById(R.id.cashValue);
 
         spinner_program = (Spinner) findViewById(R.id.spinner_program);

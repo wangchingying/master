@@ -25,7 +25,7 @@ public class AddProgram extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_program);
 
-        masterName=(TextView)findViewById(R.id.masterName_order);
+        masterName=(TextView)findViewById(R.id.masterName__wmd);
         programID=(EditText)findViewById(R.id.programID);
         programPrice=(EditText)findViewById(R.id.programPrice);
         programTimes=(EditText)findViewById(R.id.programTimes);

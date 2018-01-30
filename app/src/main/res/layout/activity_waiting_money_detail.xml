@@ -81,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:text="療程名稱"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,7 +92,7 @@
         android:layout_width="72dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="8dp"
         android:text="金額"
         android:textAlignment="viewEnd"
         android:textSize="18sp"
@@ -110,7 +110,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView29"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_program" />
+        app:layout_constraintTop_toBottomOf="@+id/program__wmd" />
 
     <TextView
         android:id="@+id/textView31"
@@ -142,11 +142,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="客人帳號"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/daypickbtn" />
+        app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
     <TextView
         android:id="@+id/textView34"
@@ -194,105 +194,102 @@
         app:layout_constraintStart_toEndOf="@+id/textView36"
         app:layout_constraintTop_toBottomOf="@+id/bankCode__wmd" />
 
-    <EditText
-        android:id="@+id/VIPID_order"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="請輸入手機號碼"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView33"
-        app:layout_constraintTop_toBottomOf="@+id/deadline" />
-
     <TextView
         android:id="@+id/VIPname__oo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/confirmVIP"
-        app:layout_constraintTop_toBottomOf="@+id/VIPID_order" />
-
-    <Button
-        android:id="@+id/payTransfer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
-        android:text="匯款儲值"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/VIPname__oo" />
-
-    <Spinner
-        android:id="@+id/spinner_program"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView27"
-        app:layout_constraintTop_toBottomOf="@+id/store__wmd" />
+        tools:layout_editor_absoluteY="364dp" />
 
     <Button
         android:id="@+id/payCash_wmd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:text="現金儲值"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/program__wmd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="現金儲值"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmVIP" />
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView27"
+        app:layout_constraintTop_toBottomOf="@+id/store__wmd" />
 
-    <Button
-        android:id="@+id/daypickbtn"
+    <TextView
+        android:id="@+id/textView37"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="匯款期限"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
     <TextView
-        android:id="@+id/deadline"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:hint="按鈕選擇匯款期限"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/daypickbtn"
-        app:layout_constraintTop_toBottomOf="@+id/bankAccount__wmd" />
-
-    <Button
-        android:id="@+id/confirmVIP"
+        android:id="@+id/textView38"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="確認客人姓名"
+        android:text="客人姓名"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
-    <EditText
-        android:id="@+id/cashValue"
-        android:layout_width="100dp"
+    <Button
+        android:id="@+id/deleteOrder_wmd"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="儲值金額"
-        android:inputType="textPersonName|number"
-        app:layout_constraintBottom_toBottomOf="@+id/payCash_wmd"
-        app:layout_constraintStart_toEndOf="@+id/payCash_wmd" />
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="刪除訂單"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/deadline__wmd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView37"
+        app:layout_constraintTop_toBottomOf="@+id/bankAccount__wmd" />
+
+    <TextView
+        android:id="@+id/VIPId__wmd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView33"
+        app:layout_constraintTop_toBottomOf="@+id/deadline__wmd" />
+
+    <TextView
+        android:id="@+id/VIPName_wmd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView38"
+        app:layout_constraintTop_toBottomOf="@+id/VIPId__wmd" />
 </android.support.constraint.ConstraintLayout>

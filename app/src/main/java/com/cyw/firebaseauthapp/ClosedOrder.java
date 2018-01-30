@@ -12,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.cyw.firebaseauthapp.OrderData.flag;
 import com.cyw.firebaseauthapp.OrderData.order;
 
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class ClosedOrder extends AppCompatActivity {
         for(int i=0;i<orderList.size();i++)
         {
             if(orderList.get(i).masterId.toString().equals(masterID)
-                    &&(orderList.get(i).transferMoney>0)&&(orderList.get(i).balanceTimes==0))
+                    &&(orderList.get(i).flag.equals(flag.CLOSED_ORDER)))
             {
                 Log.d("order","抓的"+orderList.get(i).masterId.toString()+"原本:"+masterID);
                 closedorderList.add(orderList.get(i).orderId);
@@ -77,15 +78,15 @@ public class ClosedOrder extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater=LayoutInflater.from(ClosedOrder.this);
-            View v=inflater.inflate(R.layout.myitem_closed_order,null);
-            TextView tv=v.findViewById(R.id.textView30);
-            TextView tv1=v.findViewById(R.id.textView32);
+            View v=inflater.inflate(R.layout.myitem,null);
+            TextView tv=v.findViewById(R.id.textView);
+            //TextView tv1=v.findViewById(R.id.textView32);
             String OID=closedorderList.get(position).toString();
-            String CID=MainActivity.dao_o.getOrder(OID).customerId;
-            String CName=MainActivity.dao_v.getVIP(CID).name;
-            Log.d("open order","order:"+OID+" VIPid:"+CID+"  VIPname:"+CName);
+            //String CID=MainActivity.dao_o.getOrder(OID).customerId;
+            //String CName=MainActivity.dao_v.getVIP(CID).name;
+            //Log.d("open order","order:"+OID+" VIPid:"+CID+"  VIPname:"+CName);
             tv.setText("訂單號碼:"+OID);
-            tv1.setText("客戶姓名:"+CName);
+            //tv1.setText("客戶姓名:"+CName);
             return v;
 
         }

@@ -12,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.cyw.firebaseauthapp.OrderData.flag;
 import com.cyw.firebaseauthapp.OrderData.order;
 import com.cyw.firebaseauthapp.VIPData.VIP;
 
@@ -38,7 +39,7 @@ public class OpenOrder extends AppCompatActivity {
         for(int i=0;i<orderList.size();i++)
         {
             if(orderList.get(i).masterId.toString().equals(masterID)
-                    &&(orderList.get(i).balanceTimes>0))
+                    &&(orderList.get(i).flag.equals(flag.OPEN_ORDER)))
             {
                 Log.d("order","抓的"+orderList.get(i).masterId.toString()+"原本:"+masterID);
                 openorderList.add(orderList.get(i).orderId);
@@ -79,15 +80,15 @@ public class OpenOrder extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater=LayoutInflater.from(OpenOrder.this);
-            View v=inflater.inflate(R.layout.myitem_open_order,null);
-            TextView tv=v.findViewById(R.id.textView26);
-            TextView tv1=v.findViewById(R.id.textView28);
+            View v=inflater.inflate(R.layout.myitem,null);
+            TextView tv=v.findViewById(R.id.textView);
+            //TextView tv1=v.findViewById(R.id.textView28);
             String OID=openorderList.get(position).toString();
-            String CID=MainActivity.dao_o.getOrder(OID).customerId;
-            String CName=MainActivity.dao_v.getVIP(CID).name;
-            Log.d("open order","order:"+OID+" VIPid:"+CID+"  VIPname:"+CName);
+            //String CID=MainActivity.dao_o.getOrder(OID).customerId;
+            //String CName=MainActivity.dao_v.getVIP(CID).name;
+            //Log.d("open order","order:"+OID+" VIPid:"+CID+"  VIPname:"+CName);
             tv.setText("訂單號碼:"+OID);
-            tv1.setText("客戶姓名:"+CName);
+            //tv1.setText("客戶姓名:"+CName);
             return v;
 
         }

@@ -34,7 +34,7 @@ public class TobeConfirmOrder extends AppCompatActivity {
         for(int i=0;i<orderList.size();i++)
         {
             if(orderList.get(i).masterId.toString().equals(masterID)
-                    &&(orderList.get(i).transferMoney>0)&&(orderList.get(i).balanceTimes==0))
+                    &&(orderList.get(i).transferMoney>0)&&(orderList.get(i).balanceTimes==0)&&(orderList.get(i).serviceTimes==0))
             {
                 Log.d("order","抓的"+orderList.get(i).masterId.toString()+"原本:"+masterID);
                 tbcList.add(orderList.get(i).orderId);
@@ -83,7 +83,7 @@ public class TobeConfirmOrder extends AppCompatActivity {
             String CName=MainActivity.dao_v.getVIP(CID).name;
             Log.d("tbc order","order:"+OID+" VIPid:"+CID+"  VIPname:"+CName);
             tv.setText("訂單號碼:"+OID);
-            tv1.setText("客戶姓名:"+CName);
+            //tv1.setText("客戶姓名:"+CName);
             return v;
 
         }

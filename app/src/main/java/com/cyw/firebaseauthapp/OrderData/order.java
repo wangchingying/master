@@ -19,9 +19,10 @@ public class order{
     public int balanceTimes;
     public int serviceTimes;
     public String customerfeedback;
+    public flag flag;
 
 
-    public order(String orderId, String customerId, String masterId, String programID, String deadline,String transferTime, int price, int transferMoney, int balanceTimes, int serviceTimes, String customerfeedback)
+    public order(String orderId, String customerId, String masterId, String programID, String deadline,String transferTime, int price, int transferMoney, int balanceTimes, int serviceTimes, String customerfeedback, flag flag)
     {
         this.orderId=orderId;
         this.customerId=customerId;
@@ -34,6 +35,7 @@ public class order{
         this.balanceTimes=balanceTimes;
         this.serviceTimes=serviceTimes;
         this.customerfeedback=customerfeedback;
+        this.flag=flag;
 
     }
 

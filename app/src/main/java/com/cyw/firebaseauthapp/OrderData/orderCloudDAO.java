@@ -102,7 +102,9 @@ public class orderCloudDAO implements orderDAOInterface {
                 t.transferTime = s.transferTime;
                 t.transferMoney = s.transferMoney;
                 t.balanceTimes=s.balanceTimes;
+                t.serviceTimes=s.serviceTimes;
                 t.customerfeedback=s.customerfeedback;
+                t.flag=s.flag;
 
                 saveFile();
                 return true;

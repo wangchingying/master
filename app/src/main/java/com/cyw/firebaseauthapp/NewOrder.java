@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cyw.firebaseauthapp.Data.master;
+import com.cyw.firebaseauthapp.OrderData.flag;
 import com.cyw.firebaseauthapp.OrderData.order;
 import com.cyw.firebaseauthapp.OrderData.orderCloudDAO;
 
@@ -146,7 +147,8 @@ public class NewOrder extends AppCompatActivity {
                         0,
                         0,
                         0,
-                        ""));
+                        "",
+                        flag.WAIT_TRANSFER));
                     Toast.makeText(NewOrder.this, "資料以上傳雲端,請通知客戶儲值", Toast.LENGTH_SHORT).show();
                     //Log.d("orderorderorder1",MainActivity.dao_o.getList().toString());
 
@@ -179,7 +181,8 @@ public class NewOrder extends AppCompatActivity {
                             Integer.valueOf(cashValue.getText().toString()),
                             Integer.valueOf(times_order.getText().toString()),
                             0,
-                            "現金儲值"));
+                            "現金儲值",
+                            flag.OPEN_ORDER));
                     Toast.makeText(NewOrder.this, "現金儲值成功,可開始預約", Toast.LENGTH_SHORT).show();
                     finish();
                 }

@@ -13,6 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.cyw.firebaseauthapp.OrderData.flag;
 import com.cyw.firebaseauthapp.OrderData.order;
 import com.cyw.firebaseauthapp.VIPData.VIP;
 
@@ -38,7 +39,7 @@ public class WaitingMoney extends AppCompatActivity {
         for(int i=0;i<orderList.size();i++)
         {
             if(orderList.get(i).masterId.toString().equals(masterID)
-                    &&(orderList.get(i).transferMoney==0))
+                    &&(orderList.get(i).flag.equals(flag.WAIT_TRANSFER)))
             {
                 Log.d("order","抓的"+orderList.get(i).masterId.toString()+"原本:"+masterID);
                 wMoneyList.add(orderList.get(i).orderId);
@@ -85,7 +86,7 @@ public class WaitingMoney extends AppCompatActivity {
             String OID=wMoneyList.get(position).toString();
             String CID=MainActivity.dao_o.getOrder(OID).customerId;
             String CName=MainActivity.dao_v.getVIP(CID).name;
-            Log.d("waiting Money","order:"+OID+" VIPid:"+CID+"  VIPname:"+CName);
+            Log.d("waiting Transfer","order:"+OID+" VIPid:"+CID+"  VIPname:"+CName);
             tv.setText("訂單號碼:"+OID);
             tv1.setText("客戶姓名:"+CName);
             return v;

@@ -59,7 +59,8 @@
         <activity android:name=".WaitingMoney_detail" />
         <activity android:name=".ClosedOrder_detail" />
         <activity android:name=".TobeConfirmOrder_detail" />
-        <activity android:name=".modify_program"></activity>
+        <activity android:name=".modify_program" />
+        <activity android:name=".ScheduleData"></activity>
     </application>
 
 </manifest>

@@ -14,20 +14,20 @@ import android.widget.Button;
 // 6
 public class MasterActivity extends AppCompatActivity implements View.OnClickListener{
 
-    Button masterData,orderData,btn3,btn4,btn5,btn6;
+    Button masterData,orderData,scheduleData,btn4,btn5,btn6;
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_master);
         masterData=(Button)findViewById(R.id.masterData);
         orderData=(Button)findViewById(R.id.orderData);
-        btn3=(Button)findViewById(R.id.btn3);
+        scheduleData=(Button)findViewById(R.id.scheduleData);
         btn4=(Button)findViewById(R.id.store);
         btn5=(Button)findViewById(R.id.btn5);
         btn6=(Button)findViewById(R.id.btn6);
         masterData.setOnClickListener(this);
         orderData.setOnClickListener(this);
-        btn3.setOnClickListener(this);
+        scheduleData.setOnClickListener(this);
         btn4.setOnClickListener(this);
         btn5.setOnClickListener(this);
         btn6.setOnClickListener(this);
@@ -47,7 +47,9 @@ public class MasterActivity extends AppCompatActivity implements View.OnClickLis
                 Intent it2=new Intent(MasterActivity.this,OrderActivity.class);
                 startActivity(it2);
                 break;
-            case R.id.btn3:
+            case R.id.scheduleData:
+                Intent it3=new Intent(MasterActivity.this,ScheduleData.class);
+                startActivity(it3);
                 break;
             case R.id.store:
                 Intent it4=new Intent(MasterActivity.this,StoreLoc.class);

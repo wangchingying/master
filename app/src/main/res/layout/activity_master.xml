@@ -57,7 +57,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn3"
+            android:id="@+id/scheduleData"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"

@@ -115,9 +115,10 @@ public class programCloudDAO implements programDAOInterface {
     public boolean delete(String masterid,String programid) {
         for (program s : mylist)
         {
-            if (s.masterID.equals(s.masterID)&&s.programID.equals(s.programID))
+            if (s.masterID.equals(masterid)&&s.programID.equals(programid))
             {
                 mylist.remove(s);
+                //Log.d("program DAO remove","");
                 saveFile();
                 return true;
             }

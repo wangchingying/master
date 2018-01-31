@@ -58,7 +58,8 @@
         <activity android:name=".StoreLoc" />
         <activity android:name=".WaitingMoney_detail" />
         <activity android:name=".ClosedOrder_detail" />
-        <activity android:name=".TobeConfirmOrder_detail"></activity>
+        <activity android:name=".TobeConfirmOrder_detail" />
+        <activity android:name=".modify_program"></activity>
     </application>
 
 </manifest>

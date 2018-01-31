@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context="com.cyw.firebaseauthapp.AddProgram">
+    android:layout_height="match_parent"
+    tools:context="com.cyw.firebaseauthapp.modify_program">
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/textView42"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/textView49"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -26,76 +26,32 @@
         android:text="療程名稱"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/textView42" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/textView57"
         android:layout_width="72dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="30dp"
         android:text="價格"
-        android:textAlignment="textEnd"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/textView58"
         android:layout_width="72dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="30dp"
         android:text="次數"
-        android:textAlignment="textEnd"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
-
-    <EditText
-        android:id="@+id/programID"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="請輸入療程名稱"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView18"
-        app:layout_constraintTop_toBottomOf="@+id/masterName__wmd" />
-
-    <EditText
-        android:id="@+id/programPrice"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="請輸入價格"
-        android:inputType="textPersonName|number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView19"
-        app:layout_constraintTop_toBottomOf="@+id/programID" />
-
-    <EditText
-        android:id="@+id/programTimes"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="請輸入次數"
-        android:inputType="textPersonName|number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView20"
-        app:layout_constraintTop_toBottomOf="@+id/programPrice" />
+        app:layout_constraintTop_toBottomOf="@+id/textView57" />
 
     <TextView
-        android:id="@+id/masterName__wmd"
+        android:id="@+id/masterName_mp"
         android:layout_width="0dp"
         android:layout_height="35dp"
         android:layout_marginEnd="8dp"
@@ -103,17 +59,66 @@
         android:layout_marginTop="16dp"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintStart_toEndOf="@+id/textView42"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/price_mp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="請輸入價格"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView57"
+        app:layout_constraintTop_toBottomOf="@+id/programId_mp" />
+
+    <EditText
+        android:id="@+id/times_mp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="請輸入次數"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView58"
+        app:layout_constraintTop_toBottomOf="@+id/price_mp" />
+
     <Button
-        android:id="@+id/addbtn"
+        android:id="@+id/delete_program_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="44dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
-        android:text="新增"
+        android:text="刪除"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/programTimes" />
+        app:layout_constraintTop_toBottomOf="@+id/times_mp" />
 
+    <Button
+        android:id="@+id/modify_program_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="修改"
+        app:layout_constraintEnd_toStartOf="@+id/delete_program_btn"
+        app:layout_constraintTop_toBottomOf="@+id/times_mp" />
+
+    <TextView
+        android:id="@+id/programId_mp"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView49"
+        app:layout_constraintTop_toBottomOf="@+id/masterName_mp" />
 </android.support.constraint.ConstraintLayout>

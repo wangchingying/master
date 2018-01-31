@@ -24,24 +24,23 @@ public class WaitingMoney_detail extends AppCompatActivity {
     order o;
     master m;
     VIP v;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waiting_money_detail);
-                orderId_wmd=(TextView)findViewById(R.id.orderId_wmd);
-                masterName_wmd=(TextView)findViewById(R.id.masterName__wmd);
-                store_wmd=(TextView)findViewById(R.id.store__wmd);
-                program_wmd=(TextView)findViewById(R.id.program__wmd);;
-                price_wmd=(TextView)findViewById(R.id.price__wmd);
-                times_wmd=(TextView)findViewById(R.id.times__wmd);
-                bankCode_wmd=(TextView)findViewById(R.id.bankCode__wmd);
-                bankAccount_wmd=(TextView)findViewById(R.id.bankAccount__wmd);
-                deadline_wmd=(TextView)findViewById(R.id.deadline__wmd);
-                VIPId_wmd=(TextView)findViewById(R.id.VIPId__wmd);
-                VIPName_wmd=(TextView)findViewById(R.id.VIPName_wmd);
-                payCash_wmd=(Button)findViewById(R.id.payCash_wmd);
-                deleteOrder_wmd=(Button)findViewById(R.id.deleteOrder_wmd);
+        orderId_wmd=(TextView)findViewById(R.id.orderId_wmd);
+        masterName_wmd=(TextView)findViewById(R.id.masterName__wmd);
+        store_wmd=(TextView)findViewById(R.id.store__wmd);
+        program_wmd=(TextView)findViewById(R.id.program__wmd);;
+        price_wmd=(TextView)findViewById(R.id.price__wmd);
+        times_wmd=(TextView)findViewById(R.id.times__wmd);
+        bankCode_wmd=(TextView)findViewById(R.id.bankCode__wmd);
+        bankAccount_wmd=(TextView)findViewById(R.id.bankAccount__wmd);
+        deadline_wmd=(TextView)findViewById(R.id.deadline__wmd);
+        VIPId_wmd=(TextView)findViewById(R.id.VIPId__wmd);
+        VIPName_wmd=(TextView)findViewById(R.id.VIPName_wmd);
+        payCash_wmd=(Button)findViewById(R.id.payCash_wmd);
+        deleteOrder_wmd=(Button)findViewById(R.id.deleteOrder_wmd);
 
         OID=getIntent().getStringExtra("OrderID");
         o=MainActivity.dao_o.getOrder(OID);

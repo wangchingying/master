@@ -18,9 +18,9 @@ import java.util.Calendar;
 
 public class OpenOrder_detail extends AppCompatActivity {
 
-    TextView orderId_wmd,masterName_wmd,store_wmd,program_wmd,price_wmd,times_wmd,bankCode_wmd,bankAccount_wmd,deadline_wmd,VIPId_wmd,VIPName_wmd;
-    Button payCash_wmd,deleteOrder_wmd;
-    String OID,MID;
+
+    TextView orderId_oo, masterName_oo, store_oo, program_oo, price_oo, transferTime_oo, VIPId_oo, VIPName_oo, balanceTimes_oo, serviceTimes_oo;
+    String OID, MID;
     order o;
     master m;
     VIP v;
@@ -28,69 +28,36 @@ public class OpenOrder_detail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_waiting_money_detail);
-                orderId_wmd=(TextView)findViewById(R.id.orderId_wmd);
-                masterName_wmd=(TextView)findViewById(R.id.masterName__wmd);
-                store_wmd=(TextView)findViewById(R.id.store__wmd);
-                program_wmd=(TextView)findViewById(R.id.program__wmd);;
-                price_wmd=(TextView)findViewById(R.id.price__wmd);
-                times_wmd=(TextView)findViewById(R.id.times__wmd);
-                bankCode_wmd=(TextView)findViewById(R.id.bankCode__wmd);
-                bankAccount_wmd=(TextView)findViewById(R.id.bankAccount__wmd);
-                deadline_wmd=(TextView)findViewById(R.id.deadline__wmd);
-                VIPId_wmd=(TextView)findViewById(R.id.VIPId__wmd);
-                VIPName_wmd=(TextView)findViewById(R.id.VIPName_wmd);
-                payCash_wmd=(Button)findViewById(R.id.payCash_wmd);
-                deleteOrder_wmd=(Button)findViewById(R.id.deleteOrder_wmd);
+        setContentView(R.layout.activity_open_order_detail);
+        orderId_oo = (TextView) findViewById(R.id.orderId_oo);
+        masterName_oo = (TextView) findViewById(R.id.masterName_oo);
+        store_oo = (TextView) findViewById(R.id.store_oo);
+        program_oo = (TextView) findViewById(R.id.program_oo);
+        ;
+        price_oo = (TextView) findViewById(R.id.price_oo);
+        transferTime_oo = (TextView) findViewById(R.id.transferTime_oo);
+        VIPId_oo = (TextView) findViewById(R.id.VIPId_oo);
+        VIPName_oo = (TextView) findViewById(R.id.VIPName_oo);
+        balanceTimes_oo = (TextView) findViewById(R.id.balanceTimes_oo);
+        serviceTimes_oo = (TextView) findViewById(R.id.serviceTimes_oo);
 
-        OID=getIntent().getStringExtra("OrderID");
-        o=MainActivity.dao_o.getOrder(OID);
+        OID = getIntent().getStringExtra("OrderID");
+        o = MainActivity.dao_o.getOrder(OID);
         SharedPreferences sp = getSharedPreferences("basicdata", MODE_PRIVATE);
         MID = sp.getString("id", "");
-        m=MainActivity.dao_m.getMaster(MID);
-        v=MainActivity.dao_v.getVIP(o.customerId);
+        m = MainActivity.dao_m.getMaster(MID);
+        v = MainActivity.dao_v.getVIP(o.customerId);
 
-        orderId_wmd.setText(OID);
-        masterName_wmd.setText(m.name.toString());
-        store_wmd.setText(m.store.toString());
-        program_wmd.setText(o.programID.toString());
-        price_wmd.setText(Integer.valueOf(o.price).toString());
-        times_wmd.setText(Integer.valueOf(o.balanceTimes).toString());
-        bankCode_wmd.setText(m.bankcode.toString());
-        bankAccount_wmd.setText(m.accountNumber.toString());
-        deadline_wmd.setText(o.deadline.toString());
-        VIPId_wmd.setText(v.id.toString());
-        VIPName_wmd.setText(v.name.toString());
-
-        payCash_wmd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                o.flag=flag.OPEN_ORDER;
-                o.balanceTimes=Integer.valueOf(times_wmd.getText().toString());
-                o.customerfeedback="現金儲值";
-                //現金儲值時間(就是現在)
-                SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmm");
-                Calendar c = Calendar.getInstance();
-                String currentTime = df.format(c.getTime());
-                o.transferTime=currentTime;
-                o.transferMoney=Integer.valueOf(price_wmd.getText().toString());
-                o.serviceTimes=0;
-
-                MainActivity.dao_o.update(o);
-
-                Toast.makeText(OpenOrder_detail.this, "現金儲值成功,可開始預約", Toast.LENGTH_SHORT).show();
-                finish();
-
-            }
-        });
-
-        deleteOrder_wmd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MainActivity.dao_o.delete(OID);
-                finish();
-            }
-        });
+        orderId_oo.setText(OID);
+        masterName_oo.setText(m.name.toString());
+        store_oo.setText(m.store.toString());
+        program_oo.setText(o.programID.toString());
+        price_oo.setText(Integer.valueOf(o.price).toString());
+        transferTime_oo.setText(o.transferTime.toString());
+        VIPId_oo.setText(v.id.toString());
+        VIPName_oo.setText(v.name.toString());
+        balanceTimes_oo.setText(Integer.valueOf(o.balanceTimes).toString());
+        serviceTimes_oo.setText(Integer.valueOf(o.serviceTimes).toString());
 
     }
 }

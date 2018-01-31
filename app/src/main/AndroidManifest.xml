@@ -50,6 +50,7 @@
         <activity android:name=".NewOrder" />
         <activity android:name=".WaitingMoney" />
         <activity android:name=".OpenOrder" />
+        <activity android:name=".OpenOrder_detail" />
         <activity android:name=".ClosedOrder" />
         <activity android:name=".BasicDataMaintainProgram" />
         <activity android:name=".AddProgram" />

@@ -1,30 +1,20 @@
 package com.cyw.firebaseauthapp;
 
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
+import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cyw.firebaseauthapp.Data.master;
-import com.cyw.firebaseauthapp.OrderData.flag;
 import com.cyw.firebaseauthapp.OrderData.order;
 import com.cyw.firebaseauthapp.VIPData.VIP;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
-public class OpenOrder_detail extends AppCompatActivity {
-
-
-    TextView orderId_oo, masterName_oo, store_oo, program_oo, price_oo, transferTime_oo, VIPId_oo, VIPName_oo, balanceTimes_oo, serviceTimes_oo,customerFeedback_oo;
+public class ClosedOrder_detail extends AppCompatActivity {
+    TextView orderId_oo, masterName_oo, store_oo, program_oo, price_oo, transferTime_oo, VIPId_oo, VIPName_oo, balanceTimes_oo, serviceTimes_oo;
     String OID, MID;
     order o;
     master m;
     VIP v;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,14 +23,13 @@ public class OpenOrder_detail extends AppCompatActivity {
         masterName_oo = (TextView) findViewById(R.id.masterName_oo);
         store_oo = (TextView) findViewById(R.id.store_oo);
         program_oo = (TextView) findViewById(R.id.program_oo);
-
+        ;
         price_oo = (TextView) findViewById(R.id.price_oo);
         transferTime_oo = (TextView) findViewById(R.id.transferTime_oo);
         VIPId_oo = (TextView) findViewById(R.id.VIPId_oo);
         VIPName_oo = (TextView) findViewById(R.id.VIPName_oo);
         balanceTimes_oo = (TextView) findViewById(R.id.balanceTimes_oo);
         serviceTimes_oo = (TextView) findViewById(R.id.serviceTimes_oo);
-        customerFeedback_oo = (TextView) findViewById(R.id.customerFeedback_oo);
 
         OID = getIntent().getStringExtra("OrderID");
         o = MainActivity.dao_o.getOrder(OID);
@@ -59,7 +48,7 @@ public class OpenOrder_detail extends AppCompatActivity {
         VIPName_oo.setText(v.name.toString());
         balanceTimes_oo.setText(Integer.valueOf(o.balanceTimes).toString());
         serviceTimes_oo.setText(Integer.valueOf(o.serviceTimes).toString());
-        customerFeedback_oo.setText(o.customerfeedback.toString());
+
 
     }
 }

@@ -68,7 +68,7 @@ public class WaitingMoney_detail extends AppCompatActivity {
                 o.balanceTimes=Integer.valueOf(times_wmd.getText().toString());
                 o.customerfeedback="現金儲值";
                 //現金儲值時間(就是現在)
-                SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmm");
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                 Calendar c = Calendar.getInstance();
                 String currentTime = df.format(c.getTime());
                 o.transferTime=currentTime;

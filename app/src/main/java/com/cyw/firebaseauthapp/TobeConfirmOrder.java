@@ -1,5 +1,6 @@
 package com.cyw.firebaseauthapp;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -50,7 +51,10 @@ public class TobeConfirmOrder extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                Intent it1=new Intent(TobeConfirmOrder.this,TobeConfirmOrder_detail.class);
+                String OID=tbcList.get(i).toString();
+                it1.putExtra("OrderID",OID);
+                startActivity(it1);
 
             }
         });

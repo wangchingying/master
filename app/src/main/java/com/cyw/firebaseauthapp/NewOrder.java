@@ -51,7 +51,7 @@ public class NewOrder extends AppCompatActivity {
         deadline = (TextView) findViewById(R.id.deadline);
         payTransfer = (Button) findViewById(R.id.payTransfer);
         payCash = (Button) findViewById(R.id.payCash_wmd);
-        cashValue=(EditText)findViewById(R.id.cashValue);
+        //cashValue=(EditText)findViewById(R.id.cashValue);
 
         spinner_program = (Spinner) findViewById(R.id.spinner_program);
 
@@ -140,7 +140,7 @@ public class NewOrder extends AppCompatActivity {
                         "",
                         Integer.valueOf(price_order.getText().toString()),
                         0,
-                        0,
+                        Integer.valueOf(times_order.getText().toString()),
                         0,
                         "",
                         flag.WAIT_TRANSFER));
@@ -156,12 +156,12 @@ public class NewOrder extends AppCompatActivity {
         payCash.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(cashValue.getText().toString().equals("")||MainActivity.dao_v.getList()==null ||
+                if(MainActivity.dao_v.getList()==null ||
                         MainActivity.dao_v.getVIP(VIPID_order.getText().toString())==null){
                     Toast.makeText(NewOrder.this, "請輸入客人帳號或儲值現金", Toast.LENGTH_SHORT).show();
                 }else{
                     //現金儲值時間(就是現在)
-                    SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmm");
+                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                     Calendar c = Calendar.getInstance();
                     String currentTime = df.format(c.getTime());
 
@@ -173,7 +173,8 @@ public class NewOrder extends AppCompatActivity {
                             deadline.getText().toString(),
                             currentTime,
                             Integer.valueOf(price_order.getText().toString()),
-                            Integer.valueOf(cashValue.getText().toString()),
+                            //Integer.valueOf(cashValue.getText().toString()),
+                            Integer.valueOf(price_order.getText().toString()),
                             Integer.valueOf(times_order.getText().toString()),
                             0,
                             "現金儲值",

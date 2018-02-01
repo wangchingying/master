@@ -18,6 +18,7 @@ WebView wv1;
         //開啟javascript功能才能看更多內容
         wv1.getSettings().setJavaScriptEnabled(true);
         wv1.loadUrl("https://calendar.google.com/calendar?cid=d2FuZ2NoaW5neWluZ0BnbWFpbC5jb20");
+        //wv1.loadUrl("https://www.google.com.tw/maps/dir/新北市林口區仁愛路二段259號/244新北市林口區文化二路一段563-3號1樓林口");
 
 
     }

@@ -21,6 +21,6 @@ public class StoreMap extends AppCompatActivity {
         Log.d("fromto","test1");
         String[] fromto= getIntent().getStringArrayExtra("fromto");
         Log.d("fromto","https://www.google.com.tw/maps/dir/"+fromto[0]+"/"+fromto[1]);
-        wv1.loadUrl("https://www.google.com.tw/");//+fromto[0]+"/"+fromto[1]);
+        wv1.loadUrl("https://www.google.com.tw/maps/dir/"+fromto[0]+"/"+fromto[1]);
     }
 }

@@ -30,6 +30,12 @@ public class TobeConfirmOrder extends AppCompatActivity {
         lv=(ListView)findViewById(R.id.listView_tbc);
         SharedPreferences sp = getSharedPreferences("basicdata", MODE_PRIVATE);
         masterID = sp.getString("id", "");
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         orderList=MainActivity.dao_o.getList();
         tbcList=new ArrayList<>();
 
@@ -58,7 +64,9 @@ public class TobeConfirmOrder extends AppCompatActivity {
 
             }
         });
+        //wMoneyList.clear();
     }
+
 
     class Myadapter extends BaseAdapter {
 
@@ -93,12 +101,4 @@ public class TobeConfirmOrder extends AppCompatActivity {
 
         }
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //wMoneyList.clear();
-    }
-
-
 }

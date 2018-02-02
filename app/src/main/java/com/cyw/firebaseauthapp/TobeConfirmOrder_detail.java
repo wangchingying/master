@@ -6,15 +6,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cyw.firebaseauthapp.Data.master;
+import com.cyw.firebaseauthapp.OrderData.flag;
 import com.cyw.firebaseauthapp.OrderData.order;
 import com.cyw.firebaseauthapp.VIPData.VIP;
 
 public class TobeConfirmOrder_detail extends AppCompatActivity {
 
     TextView orderID_tbcd,masterName_tbcd,store_tbcd,programId_tbcd,price_tbcd,balanceTimes_tbcd,bankCode_tbcd,bankAccount_tbcd,deadline_tbcd,transferTime_tbcd,VIPId_tbcd,VIPName_tbcd,customerFeedback_tbcd;
-    Button confirmTransfer_btn;
+    Button confirmTransfer_btn,delete_tbcd_btn;
     String MID,OID;
     order o;
     VIP v;
@@ -38,6 +40,7 @@ public class TobeConfirmOrder_detail extends AppCompatActivity {
         VIPName_tbcd=(TextView)findViewById(R.id.VIPName_tbcd);
         customerFeedback_tbcd=(TextView)findViewById(R.id.customerFeedback_tbcd);
         confirmTransfer_btn=(Button)findViewById(R.id.confirmTransfer_btn);
+        delete_tbcd_btn=(Button)findViewById(R.id.delete_tbcd_btn);
 
         OID = getIntent().getStringExtra("OrderID");
         SharedPreferences sp = getSharedPreferences("basicdata", MODE_PRIVATE);
@@ -63,9 +66,27 @@ public class TobeConfirmOrder_detail extends AppCompatActivity {
         confirmTransfer_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                o.flag= flag.OPEN_ORDER;
+                MainActivity.dao_o.update(o);
+                Toast.makeText(TobeConfirmOrder_detail.this, "儲值已確認", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
+
+        delete_tbcd_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.dao_o.delete(OID);
+                Toast.makeText(TobeConfirmOrder_detail.this, "訂單:"+OID+"已經被刪除", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
     }
 }

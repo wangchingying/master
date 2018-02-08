@@ -19,14 +19,16 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="師父資料"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/store"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="分店資訊" />
+            android:text="分店資訊"
+            android:textSize="30sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -40,14 +42,16 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="訂單資料" />
+            android:text="訂單資料"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/btn5"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="保養提醒" />
+            android:text="保養提醒"
+            android:textSize="30sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -61,14 +65,16 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="排程預約" />
+            android:text="排程預約"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/btn6"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="推播資訊" />
+            android:text="推播資訊"
+            android:textSize="30sp" />
     </LinearLayout>
 
 </LinearLayout>

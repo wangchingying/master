@@ -62,7 +62,9 @@
         <activity android:name=".modify_program" />
         <activity android:name=".ScheduleData" />
         <activity android:name=".StoreMap" />
-        <activity android:name=".Schedule"></activity>
+        <activity android:name=".Schedule" />
+        <activity android:name=".TimePeriod_A" />
+        <activity android:name=".TimePeriod_B"></activity>
     </application>
 
 </manifest>

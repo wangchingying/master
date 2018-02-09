@@ -7,3 +7,4 @@ package com.cyw.firebaseauthapp.OrderData;
 public enum flag {
     WAIT_TRANSFER,TO_BE_CONFIRM,OPEN_ORDER,CLOSED_ORDER
 }
+

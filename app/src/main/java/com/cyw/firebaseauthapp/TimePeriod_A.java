@@ -64,15 +64,9 @@ public class TimePeriod_A extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater=LayoutInflater.from(TimePeriod_A.this);
-            View v=inflater.inflate(R.layout.myitem,null);
+            View v=inflater.inflate(R.layout.myitem_period,null);
             TextView tv=v.findViewById(R.id.textView);
-            //TextView tv1=v.findViewById(R.id.textView32);
-            //String OID=closedorderList.get(position).toString();
-            //String CID=MainActivity.dao_o.getOrder(OID).customerId;
-            //String CName=MainActivity.dao_v.getVIP(CID).name;
-            //Log.d("open order","order:"+OID+" VIPid:"+CID+"  VIPname:"+CName);
-            //tv.setText("訂單號碼:"+OID);
-            //tv1.setText("客戶姓名:"+CName);
+
             return v;
 
         }

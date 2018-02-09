@@ -7,24 +7,25 @@
 
     <TextView
         android:id="@+id/textView59"
-        android:layout_width="39dp"
-        android:layout_height="21dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:hint="時段"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/textSwitcher"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextSwitcher
-        android:id="@+id/textSwitcher"
-        android:layout_width="50dp"
-        android:layout_height="20dp"
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:text="ToggleButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView59"
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

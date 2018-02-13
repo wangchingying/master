@@ -107,7 +107,8 @@ public class BasicDataMaintainProgram extends AppCompatActivity {
             //master m=MainActivity.dao_m.getMaster(masterID);
             final String programID=mpList.get(position).toString();
             program p=MainActivity.dao_p.getProgram(masterID,programID);
-                tv5.setText(masterID);
+            master m=MainActivity.dao_m.getMaster(masterID);
+                tv5.setText(m.name.toString());
                 tv6.setText(p.programID.toString());
                 tv7.setText(Integer.valueOf(p.price).toString());
                 tv8.setText(Integer.valueOf(p.times).toString());

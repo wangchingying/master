@@ -48,7 +48,7 @@ public class TimePeriod_A extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 0;
+            return 1;
         }
 
         @Override

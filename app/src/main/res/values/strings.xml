@@ -2,5 +2,27 @@
     <string name="app_name">FirebaseAuthApp</string>
     <string name="facebook_app_id">350598862085436</string>
     <string name="fb_login_protocol_scheme">fb350598862085436</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_master_activity">師父主畫面</string>
+    <string name="title_activity_booking">預約</string>
+    <string name="title_activity_register_activity">註冊</string>
+    <string name="title_activity_masterbasicdata">師父基本資料</string>
+    <string name="title_activity_basicdatamaintain">修改基本資料</string>
+    <string name="title_activity_basicdatamaintainpwd">修改密碼</string>
+    <string name="title_activity_order_activity">訂單作業</string>
+    <string name="title_activity_new_order">新訂單</string>
+    <string name="title_activity_waiting_money">待儲值訂單</string>
+    <string name="title_activity_open_order">未結訂單</string>
+    <string name="title_activity_closed_order">已結訂單</string>
+    <string name="title_activity_open_order_detail">未結訂單明細</string>
+    <string name="title_activity_waiting_money_detail">待儲值訂單明細</string>
+    <string name="title_activity_to_be_comfim_order">待確認已儲值訂單</string>
+    <string name="title_activity_closed_order_detail">已結訂單明細</string>
+    <string name="title_activity_to_be_confirm_order_detail">待確認已儲值訂單明細</string>
+    <string name="title_activity_basic_data_maintain_program">療程資料</string>
+    <string name="title_activity_add_program">新增療程</string>
+    <string name="title_activity_modify_program">修改療程</string>
+    <string name="title_activity_store_loc">分店資訊</string>
+
 
 </resources>

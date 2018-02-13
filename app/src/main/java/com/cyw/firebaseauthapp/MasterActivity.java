@@ -64,7 +64,7 @@ public class MasterActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(it2);
                 break;
             case R.id.scheduleData:
-                Intent it3=new Intent(MasterActivity.this,Schedule.class);
+                Intent it3=new Intent(MasterActivity.this,Booking.class);
                 startActivity(it3);
                 break;
             case R.id.store:

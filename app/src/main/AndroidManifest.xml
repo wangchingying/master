@@ -9,7 +9,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="順安整復中心師父管理系統"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -40,29 +40,194 @@
 
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
+
+        <!--這段activity參考每頁的title怎麼寫, 注意String裡面也要定義, 一開始要的menu是title.xml -->
         </activity>
-        <activity android:name=".MasterActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".MasterBasicData" />
-        <activity android:name=".BasicDataMaintain" />
-        <activity android:name=".BasicDataMaintainPWD" />
-        <activity android:name=".OrderActivity" />
-        <activity android:name=".NewOrder" />
-        <activity android:name=".WaitingMoney" />
-        <activity android:name=".OpenOrder" />
-        <activity android:name=".OpenOrder_detail" />
-        <activity android:name=".ClosedOrder" />
-        <activity android:name=".BasicDataMaintainProgram" />
-        <activity android:name=".AddProgram" />
-        <activity android:name=".TobeConfirmOrder" />
-        <activity android:name=".StoreLoc" />
-        <activity android:name=".WaitingMoney_detail" />
-        <activity android:name=".ClosedOrder_detail" />
-        <activity android:name=".TobeConfirmOrder_detail" />
-        <activity android:name=".modify_program" />
+        <activity android:name=".MasterActivity"
+            android:label="@string/title_activity_master_activity"
+            android:parentActivityName=".MainActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity"
+            />
+        </activity>
+
+        <activity android:name=".RegisterActivity"
+            android:label="@string/title_activity_register_activity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"
+                />
+        </activity>
+
+        <activity android:name=".MasterBasicData"
+        android:label="@string/title_activity_masterbasicdata"
+        android:parentActivityName=".MasterActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MasterActivity"
+            />
+        </activity>
+
+
+    <activity android:name=".BasicDataMaintain"
+        android:label="@string/title_activity_basicdatamaintain"
+        android:parentActivityName=".MasterBasicData">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MasterBasicData"
+            />
+    </activity>
+
+        <activity android:name=".BasicDataMaintainPWD"
+            android:label="@string/title_activity_basicdatamaintainpwd"
+            android:parentActivityName=".MasterBasicData">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MasterBasicData"
+                />
+        </activity>
+
+        <activity android:name=".OrderActivity"
+            android:label="@string/title_activity_order_activity"
+            android:parentActivityName=".MasterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MasterActivity"
+                />
+        </activity>
+
+        <activity android:name=".NewOrder"
+            android:label="@string/title_activity_new_order"
+            android:parentActivityName=".OrderActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".OrderActivity"
+                />
+        </activity>
+
+        <activity android:name=".WaitingMoney"
+            android:label="@string/title_activity_waiting_money"
+            android:parentActivityName=".OrderActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".OrderActivity"
+                />
+        </activity>
+
+        <activity android:name=".OpenOrder"
+            android:label="@string/title_activity_open_order"
+            android:parentActivityName=".OrderActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".OrderActivity"
+                />
+        </activity>
+
+        <activity android:name=".OpenOrder_detail"
+            android:label="@string/title_activity_open_order_detail"
+            android:parentActivityName=".OpenOrder">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".OpenOrder"
+                />
+        </activity>
+
+        <activity android:name=".ClosedOrder"
+            android:label="@string/title_activity_closed_order"
+            android:parentActivityName=".OrderActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".OrderActivity"
+                />
+        </activity>
+
+        <activity android:name=".BasicDataMaintainProgram"
+            android:label="@string/title_activity_basic_data_maintain_program"
+            android:parentActivityName=".MasterBasicData">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MasterBasicData"
+                />
+        </activity>
+
+        <activity android:name=".AddProgram"
+            android:label="@string/title_activity_add_program"
+            android:parentActivityName=".BasicDataMaintainProgram">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".BasicDataMaintainProgram"
+                />
+        </activity>
+
+        <activity android:name=".TobeConfirmOrder"
+            android:label="@string/title_activity_to_be_comfim_order"
+            android:parentActivityName=".OrderActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".OrderActivity"
+                />
+        </activity>
+
+        <activity android:name=".StoreLoc"
+            android:label="@string/title_activity_store_loc"
+            android:parentActivityName=".MasterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MasterActivity"
+                />
+        </activity>
+
+
+        <activity android:name=".WaitingMoney_detail"
+            android:label="@string/title_activity_waiting_money_detail"
+            android:parentActivityName=".WaitingMoney">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".WaitingMoney"
+                />
+        </activity>
+
+        <activity android:name=".ClosedOrder_detail"
+            android:label="@string/title_activity_closed_order_detail"
+            android:parentActivityName=".ClosedOrder">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ClosedOrder"
+                />
+        </activity>
+
+        <activity android:name=".TobeConfirmOrder_detail"
+            android:label="@string/title_activity_to_be_confirm_order_detail"
+            android:parentActivityName=".TobeConfirmOrder">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TobeConfirmOrder"
+                />
+        </activity>
+
+        <activity android:name=".modify_program"
+            android:label="@string/title_activity_modify_program"
+            android:parentActivityName=".BasicDataMaintainProgram">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".BasicDataMaintainProgram"
+                />
+        </activity>
+
         <activity android:name=".ScheduleData" />
         <activity android:name=".StoreMap" />
-        <activity android:name=".Schedule" />
+
+        <activity android:name=".Booking"
+        android:label="@string/title_activity_booking"
+        android:parentActivityName=".MasterActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity"
+            />
+        </activity>
+
         <activity android:name=".TimePeriod_A" />
         <activity android:name=".TimePeriod_B"></activity>
     </application>
